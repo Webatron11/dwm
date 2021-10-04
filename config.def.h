@@ -67,8 +67,6 @@ static const char *browsercmd[] = { "firefox", NULL };
 static const char *roficmd[] = { "rofi", "-combi-modi", "drun,ssh,run", "-show", "combi", "-icon-theme", "Dracula", "-show-icons", "-modi", "run", "-location", "1", "-width", "100", "-lines", "1", "-line-margin", "0", "-line-padding", "1", "-separator-style", "none", "-font", "Cascadia Code 9", "-columns", "17", "-bw","0", "-disable-history", "-hide-scrollbar"};
 static const char *sshcmd[] = { "rofi", "-show", "ssh" }; 
 
-#include "mpdcontrol.c"
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = roficmd } },
@@ -113,9 +111,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
-	{ MODKEY,			XK_F5,	   mpdchange,	   {.i = -1} },
-	{ MODKEY,			XK_F6,	   mpdchange,	   {.i = +1} },
-	{ MODKEY,			XK_F7,	   mpdcontrol,	   {0} },
 };
 
 /* button definitions */
