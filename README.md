@@ -9,3 +9,6 @@ Patches include:
  - fullscreen
  - steam
  - functionalgaps
+
+Other Features:
+ - MPD control
