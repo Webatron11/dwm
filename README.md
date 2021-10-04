@@ -12,3 +12,4 @@ Patches include:
 
 Other Features:
  - MPD control
+ - Uses Rofi in place of dmenu
