@@ -63,7 +63,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *lockcmd[] = { "slock", NULL };
-static const char *browsercmd[] = { "firefox", NULL };
+static const char *browsercmd[] = { "firefox", "-P", "default-esr" };
 static const char *roficmd[] = { "rofi", "-combi-modi", "drun,ssh,run", "-show", "combi", "-icon-theme", "Dracula", "-show-icons", "-modi", "run", "-location", "1", "-width", "100", "-lines", "1", "-line-margin", "0", "-line-padding", "1", "-separator-style", "none", "-font", "Cascadia Code 9", "-columns", "17", "-bw","0", "-disable-history", "-hide-scrollbar"};
 static const char *sshcmd[] = { "rofi", "-show", "ssh" }; 
 
