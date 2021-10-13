@@ -31,6 +31,7 @@ static const Rule rules[] = {
         /* class     instance  title           tags mask  isfloating  isterminal  monitor */
        { "alacritty",      NULL,     NULL,           0,         0,          1,		-1 },
        { "Steam",          NULL,     NULL,           1 << 7,    0,          0,          -1 },
+       { "Spotify",	   NULL,     NULL,	     1 << 6,    0,	    0,		-1 },
        { NULL,             NULL,     "Event Tester", 0,         0,          0,          -1 }, /* xev */
 };
 
