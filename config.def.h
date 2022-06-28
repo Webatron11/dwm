@@ -7,13 +7,13 @@ static const unsigned int gappx     = 10;       /* default gap between windows i
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Cascadia Code:style=Regular:size=11" };
-static const char dmenufont[]       = "Cascadia Code:style=Regular:size=11";
-static const char col_gray1[]       = "#111111";
-static const char col_gray2[]       = "#333333";
-static const char col_gray3[]       = "#aaaaaa";
-static const char col_gray4[]       = "#cccccc";
-static const char col_cyan[]        = "#00a1cf";
+static const char *fonts[]          = { "Fira Code:style=Regular:size=11" };
+static const char dmenufont[]       = "Fira Code:style=Regular:size=11";
+static const char col_gray1[]       = "#282a36";
+static const char col_gray2[]       = "#f8f8f2";
+static const char col_gray3[]       = "#f8f8f2";
+static const char col_gray4[]       = "#44475a";
+static const char col_cyan[]        = "#8be9fd";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -29,9 +29,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
         /* class     instance  title           tags mask  isfloating  isterminal  monitor */
-       { "alacritty",      NULL,     NULL,           0,         0,          1,		-1 },
+       { "st",      NULL,     NULL,           0,         0,          1,		-1 },
        { "Steam",          NULL,     NULL,           1 << 7,    0,          0,          -1 },
-       { "Spotify",	   NULL,     NULL,	     1 << 6,    0,	    0,		-1 },
+       { "spotify",	   NULL,     NULL,	     1 << 6,    0,	    0,		-1 },
        { NULL,             NULL,     "Event Tester", 0,         0,          0,          -1 }, /* xev */
 };
 
@@ -64,18 +64,15 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *browsercmd[] = { "firefox", "-P", "default-esr" };
-static const char *roficmd[] = { "rofi", "-combi-modi", "drun,ssh,run", "-show", "combi", "-icon-theme", "Dracula", "-show-icons", "-modi", "run", "-location", "1", "-width", "100", "-lines", "1", "-line-margin", "0", "-line-padding", "1", "-separator-style", "none", "-font", "Cascadia Code 9", "-columns", "17", "-bw","0", "-disable-history", "-hide-scrollbar"};
-static const char *sshcmd[] = { "rofi", "-show", "ssh" }; 
 
 #include "mpdcontrol.c"
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = roficmd } },
-	{ MODKEY|ShiftMask,             XK_s,	   spawn,          {.v = sshcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_f,	   spawn,	   {.v = browsercmd} },
 	{ MODKEY|ShiftMask,		XK_l,	   spawn,	   {.v = lockcmd } },
